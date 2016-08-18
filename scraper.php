@@ -11,6 +11,9 @@ $dom = new simple_html_dom();
 $dom->load($html);
 
 echo   $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
+
+scraperwiki::save_sqlite('doc_name',$info);
+
  
 // // Find something on the page using css selectors
 //$dom = new simple_html_dom();
