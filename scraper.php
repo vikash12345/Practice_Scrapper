@@ -11,7 +11,8 @@ $dom = new simple_html_dom();
 $dom->load($html);
 
 
- 
+ foreach($html->find('span') as $element) 
+       echo $element->text. '<br>';
 // // Find something on the page using css selectors
 //$dom = new simple_html_dom();
 //$dom->load($html);
