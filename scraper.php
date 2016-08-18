@@ -10,7 +10,7 @@ $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 $dom = new simple_html_dom();
 $dom->load($html);
 
-echo $html->find('span[id=Name]', 0)->innertext;
+echo $html->find('span[id=Name]', 0)->plaintext;
 
 
 
