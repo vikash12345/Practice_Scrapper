@@ -9,7 +9,7 @@ $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 
 $dom = new simple_html_dom();
 $dom->load($html);
-foreach($dom->find("span[@id='Name'] tr") as $data)
+foreach($dom->find("div[id=Name]") as $data)
 
 echo $data;
 // // Find something on the page using css selectors
