@@ -10,7 +10,7 @@ echo $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1"
 
 $elements = $dom_xpath->query("*/span[@id='Name']");
 
-echo $elements
+echo $elements;
 //$dom = new simple_html_dom();
 //$dom->load($html);
 
