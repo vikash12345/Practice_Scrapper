@@ -11,15 +11,12 @@ $dom = new simple_html_dom();
 $dom->load($html);
 
 
-foreach($tr->find('span[id=Name]') as $t) {
-        //get the inner HTML
-        $data = $t->text;
-        echo $data;
+print_r($dom->at('span.Name'))->text;
     }
 // // Find something on the page using css selectors
 //$dom = new simple_html_dom();
 //$dom->load($html);
-//print_r($dom->at('span.Name')->text;
+//print_r($dom->at('span.Name'))->text;
 //
 // // Write out to the sqlite database using scraperwiki library
 //scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
