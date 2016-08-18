@@ -5,12 +5,12 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
 // // Read in a page
-$html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
+echo $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 
-$dom = new simple_html_dom();
-$dom->load($html);
+//$dom = new simple_html_dom();
+//$dom->load($html);
 
-echo $html->find('span[id=Name]', 0)->plaintext;
+//echo $html->find('span[id=Name]', 0)->plaintext;
 
 
 
