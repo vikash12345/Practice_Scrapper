@@ -3,9 +3,13 @@
 // including some code snippets below that you should find helpful
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
+
+echo "this is testing # 1";
 //
 // // Read in a page
 echo $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
+
+echo "this is testing # 2";
 
 //$dom = new simple_html_dom();
 //$dom->load($html);
