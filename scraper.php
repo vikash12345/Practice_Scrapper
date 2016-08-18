@@ -13,7 +13,7 @@ $dom->load($html);
 
 foreach($tr->find('span[id=Name]') as $t) {
         //get the inner HTML
-        $data = $t->outertext;
+        $data = $t->text;
         echo $data;
     }
 // // Find something on the page using css selectors
