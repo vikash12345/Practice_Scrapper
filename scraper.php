@@ -5,8 +5,13 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
 // // Read in a page
-echo $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
-//
+$html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
+
+$dom = new simple_html_dom();
+$dom->load($html);
+foreach($dom->find("span[@id='Name'] tr") as $data)
+
+echo $data;
 // // Find something on the page using css selectors
 //$dom = new simple_html_dom();
 //$dom->load($html);
