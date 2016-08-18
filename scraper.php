@@ -10,9 +10,12 @@ $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 $dom = new simple_html_dom();
 $dom->load($html);
 
+echo $html->find('span[id=Name]', 0)->innertext;
 
- foreach($html->find('span') as $element) 
-       echo $element->text. '<br>';
+
+
+
+
 // // Find something on the page using css selectors
 //$dom = new simple_html_dom();
 //$dom->load($html);
