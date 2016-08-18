@@ -10,7 +10,7 @@ $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 // // Find something on the page using css selectors
 $dom = new simple_html_dom();
 $dom->load($html);
-print_r($dom->at('p[Name]')->text;
+print_r($dom->at('span.Name')->text;
 //
 // // Write out to the sqlite database using scraperwiki library
 //scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
