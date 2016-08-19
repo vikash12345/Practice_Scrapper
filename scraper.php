@@ -8,7 +8,7 @@ require 'scraperwiki/simple_html_dom.php';
 echo $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 
 
-$elements = $dom_xpath->query("*/span[@id='Name']")->plaintext;
+$elements = $dom->find('span[id=Name]')->plaintext;
 
 echo $elements;
 //$dom = new simple_html_dom();
