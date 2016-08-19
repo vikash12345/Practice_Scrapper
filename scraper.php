@@ -4,43 +4,62 @@
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
-// // Read in a page
-
-	$host = 		"localhost";
-	$username = 	"root";
-	$password = "";
-	$Databasename =  "MDCN";
-
-	error_reporting(0);
-	include_once('simple_html_dom.php');
- 	$con = mysqli_connect("$host","$username","$password","$Databasename");
-	$MAX_ID = 2;
-	for($id = 1; $id <= $MAX_ID; $id++)
-	{
-		set_time_limit(0);
-
-	$html = file_get_html("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
-	$name = $html->find('span[id=Name]',0)->plaintext;
-
-//$dom = new simple_html_dom();
-//$dom->load($html);
-
-//echo $html->find('span[id=Name]', 0)->plaintext;
-
-
+$MAX_ID = 3; //set based on required maximum numbers
+/** looping over list of ids of doctors **/
+for($id = 1; $id <= $MAX_ID; $id++)
+{
+  // // Read in a MCI doctor page
+    $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
+  // Find something on the page using css selectors
+   $dom = new simple_html_dom();
+   $dom->load($html);
+   
+   // walk through the dom and extract doctor information
+	  $name = $html->find('span[id=Name]',0)->plaintext;
+	  $fathername = $html->find('span[id="FatherName"]',0)->plaintext;
+	  $DOB = $html->find('span[id="DOB"]',0)->plaintext;
+	  $lblinfor = $html->find('span[id="lbl_Info"]',0)->plaintext;
+	  $reg = $html->find('span[id="Regis_no"]',0)->plaintext;
+	  $date_reg = $html->find('span[id="Date_Reg"]',0)->plaintext;
+	  $Lbl_Council = $html->find('span[id="Lbl_Council"]',0)->plaintext;
+	  $qual = $html->find('span[id="Qual"]',0)->plaintext;
+	  $QualYear = $html->find('span[id="QualYear"]',0)->plaintext;
+	  $Univ = $html->find('span[id="Univ"]',0)->plaintext;
+      	  $Address = $html->find('span[id="Address"]',0)->plaintext;
 
 
-
-// // Find something on the page using css selectors
-//$dom = new simple_html_dom();
-//$dom->load($html);
-//print_r($dom->at('span.Name'))->text;
+// print_r($dom->find("table.list"));
 //
 // // Write out to the sqlite database using scraperwiki library
-//scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
-//
+
+scraperwiki::save( array('country'), $record );
+
+
+
+ scraperwiki::save_sqlite(array('mci_snum','registration_number'), 
+    array('mci_snum' => $id, 
+          '$name' => (trim($info['doc_name'])), 
+          '$fathername' => (trim($info['doc_fname'])),
+          '$DOB' => (trim($info['doc_dob'])),
+          '$lblinfor' => (trim($info['doc_infoyear'])),
+          '$reg' => (trim($info['doc_regnum'])),
+          '$date_reg' => (trim($info['doc_datereg'])),
+          '$Lbl_Council' => (trim($info['doc_council'])),
+          '$qual' => (trim($info['doc_qual'])),
+          '$QualYear' => (trim($info['doc_qualyear'])),
+          '$Univ' => (trim($info['Univ'])),
+          '$Address' => (trim($info['doc_address']))
+    ));
+    
+
+  //clean out the dom
+  $dom->__destruct();
+}
 // // An arbitrary query against the database
-//scraperwiki::select("* from data where 'name'='peter'")
-
+// scraperwiki::select("* from data where 'name'='peter'")
+// You don't have to do things with the ScraperWiki library.
+// You can use whatever libraries you want: https://morph.io/documentation/php
+// All that matters is that your final data is written to an SQLite database
+// called "data.sqlite" in the current working directory which has at least a table
+// called "data".
 ?>
-
