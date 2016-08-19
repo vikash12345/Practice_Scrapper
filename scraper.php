@@ -8,26 +8,26 @@ $MAX_ID = 2; //set based on required maximum numbers
 /** looping over list of ids of doctors **/
 for($id = 1; $id <= $MAX_ID; $id++)
 	{
-	$html = file_get_html("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
+echo 	$html = file_get_html("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
    
    // walk through the dom and extract doctor information
-echo 	  $name = $html->find('span[id=Name]',0)->plaintext;
-echo	  $fathername = $html->find('span[id="FatherName"]',0)->plaintext;
-echo	  $DOB = $html->find('span[id="DOB"]',0)->plaintext;
-echo	  $lblinfor = $html->find('span[id="lbl_Info"]',0)->plaintext;
-echo	  $reg = $html->find('span[id="Regis_no"]',0)->plaintext;
-echo	  $date_reg = $html->find('span[id="Date_Reg"]',0)->plaintext;
-echo	  $Lbl_Council = $html->find('span[id="Lbl_Council"]',0)->plaintext;
-echo	  $qual = $html->find('span[id="Qual"]',0)->plaintext;
-echo	  $QualYear = $html->find('span[id="QualYear"]',0)->plaintext;
-echo	  $Univ = $html->find('span[id="Univ"]',0)->plaintext;
-echo  	  $Address = $html->find('span[id="Address"]',0)->plaintext;
+// echo 	  $name = $html->find('span[id=Name]',0)->plaintext;
+// echo	  $fathername = $html->find('span[id="FatherName"]',0)->plaintext;
+// echo	  $DOB = $html->find('span[id="DOB"]',0)->plaintext;
+// echo	  $lblinfor = $html->find('span[id="lbl_Info"]',0)->plaintext;
+// echo	  $reg = $html->find('span[id="Regis_no"]',0)->plaintext;
+// echo	  $date_reg = $html->find('span[id="Date_Reg"]',0)->plaintext;
+// echo	  $Lbl_Council = $html->find('span[id="Lbl_Council"]',0)->plaintext;
+// echo	  $qual = $html->find('span[id="Qual"]',0)->plaintext;
+//echo	  $QualYear = $html->find('span[id="QualYear"]',0)->plaintext;
+//echo	  $Univ = $html->find('span[id="Univ"]',0)->plaintext;
+//echo  	  $Address = $html->find('span[id="Address"]',0)->plaintext;
 
 
 // print_r($dom->find("table.list"));
 //
 // // Write out to the sqlite database using scraperwiki library
-
+/*
 scraperwiki::save( array('country'), $record );
 
 
@@ -58,4 +58,5 @@ scraperwiki::save( array('country'), $record );
 // All that matters is that your final data is written to an SQLite database
 // called "data.sqlite" in the current working directory which has at least a table
 // called "data".
+*/
 ?>
