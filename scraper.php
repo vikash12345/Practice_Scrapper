@@ -7,12 +7,8 @@ require 'scraperwiki/simple_html_dom.php';
 $MAX_ID = 3; //set based on required maximum numbers
 /** looping over list of ids of doctors **/
 for($id = 1; $id <= $MAX_ID; $id++)
-{
-  // // Read in a MCI doctor page
-    $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
-  // Find something on the page using css selectors
-   $dom = new simple_html_dom();
-   $dom->load($html);
+	{
+	$html = file_get_html("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
    
    // walk through the dom and extract doctor information
 	  $name = $html->find('span[id=Name]',0)->plaintext;
