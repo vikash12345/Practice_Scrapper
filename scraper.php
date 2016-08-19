@@ -12,7 +12,9 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
   // Find something on the page using css selectors
    $dom = new simple_html_dom();
-echo   $dom->load($html);
+   $dom->load($html);
+  
+  echo $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
    
    // walk through the dom and extract doctor information
 //   $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
