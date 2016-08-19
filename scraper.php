@@ -14,8 +14,38 @@ for($id = 1; $id <= $MAX_ID; $id++)
    $dom = new simple_html_dom();
    $dom->load($html);
   
-	 echo  $name = $dom->find('span[id=Name]',0)->plaintext;
-   
+	  $name = $dom->find('span[id=Name]',0)->plaintext;
+	  $fathername = $dom->find('span[id="FatherName"]',0)->plaintext;
+	  $DOB = $dom->find('span[id="DOB"]',0)->plaintext;
+	  $lblinfor = $dom->find('span[id="lbl_Info"]',0)->plaintext;
+	  $reg = $dom->find('span[id="Regis_no"]',0)->plaintext;
+	  $date_reg = $dom->find('span[id="Date_Reg"]',0)->plaintext;
+	  $Lbl_Council = $dom->find('span[id="Lbl_Council"]',0)->plaintext;
+	  $qual = $dom->find('span[id="Qual"]',0)->plaintext;
+	  $QualYear = $dom->find('span[id="QualYear"]',0)->plaintext;
+	  $Univ = $dom->find('span[id="Univ"]',0)->plaintext;
+      	 $Address = $dom->find('span[id="Address"]',0)->plaintext;
+      
+      
+      
+      scraperwiki::save_sqlite(array('mci_snum','registration_number'), 
+    array('mci_snum' => $id, 
+          'name' => (trim($nam)), 
+          'fathers_name' => (trim($fathername)),
+          'date_of_birth' => (trim($DOB)),
+          'information_year' => (trim($lblinfor)),
+          'registration_number' => (trim($reg)),
+          'date_of_reg' => (trim($date_reg)),
+          'council' => (trim($Lbl_Council)),
+          'qualifications' => (trim($qual)),
+          'qualification_year' => (trim($QualYear)),
+          'Uni' => (trim($Univ)),
+          'permanent_address' => (trim($Address)))
+      
+      
+      
+      
+      
    // walk through the dom and extract doctor information
 //   $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
 //   $info['doc_fname'] = $dom->find('span[id="FatherName"]')->plaintext;
