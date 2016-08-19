@@ -14,7 +14,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
    $dom = new simple_html_dom();
    $dom->load($html);
   
-	 echo  $name = $html->find('span[id=Name]',0)->plaintext;
+	 echo  $name = $dom->find('span[id=Name]',0)->plaintext;
    
    // walk through the dom and extract doctor information
 //   $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
