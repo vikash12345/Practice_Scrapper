@@ -5,12 +5,23 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
 // // Read in a page
-echo $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=1");
 
+	$host = 		"localhost";
+	$username = 	"root";
+	$password = "";
+	$Databasename =  "MDCN";
 
-$elements = $dom->find('span[id=Name]')->plaintext;
+	error_reporting(0);
+	include_once('simple_html_dom.php');
+ 	$con = mysqli_connect("$host","$username","$password","$Databasename");
+	$MAX_ID = 2;
+	for($id = 1; $id <= $MAX_ID; $id++)
+	{
+		set_time_limit(0);
 
-echo $elements;
+	$html = file_get_html("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
+	$name = $html->find('span[id=Name]',0)->plaintext;
+
 //$dom = new simple_html_dom();
 //$dom->load($html);
 
