@@ -77,7 +77,6 @@ for($id = 1; $id <= $MAX_ID; $id++)
     ));
     */
   //clean out the dom
-  $dom->__destruct();
 }
 // // An arbitrary query against the database
 // scraperwiki::select("* from data where 'name'='peter'")
