@@ -40,7 +40,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
           'qualifications' => (trim($qual)),
           'qualification_year' => (trim($QualYear)),
           'Uni' => (trim($Univ)),
-          'permanent_address' => (trim($Address)))
+          'permanent_address' => (trim($Address)));
       
       
       
