@@ -4,11 +4,9 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 
 	include_once('simple_html_dom.php');
- 	$con = mysqli_connect("$host","$username","$password","$Databasename");
 	$MAX_ID = 2;
 	for($id = 1; $id <= $MAX_ID; $id++)
 	{
-		set_time_limit(0);
 
 	$html = file_get_html("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
 	  
