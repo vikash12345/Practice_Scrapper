@@ -30,7 +30,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
       
       scraperwiki::save_sqlite(array('mci_snum','registration_number'), 
     array('mci_snum' => $id, 
-          'name' => (trim($nam)), 
+          'name' => (trim($name)), 
           'fathers_name' => (trim($fathername)),
           'date_of_birth' => (trim($DOB)),
           'information_year' => (trim($lblinfor)),
